@@ -1,0 +1,18 @@
+a) 
+   docker run --name a1 -d -p 8000:80 httpd
+b)
+   docker run --name a2 -d -p 8001:80 httpd
+c)
+   docker logs a2
+d)
+   docker logs --follow a1
+e)
+   docker stop a1 a2
+f)
+  docker rm a1 a2
+  docker rm --force  a1 a2
+g)
+  docker rmi httpd
+h)
+docker pull httpd
+
