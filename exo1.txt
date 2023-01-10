@@ -9,10 +9,12 @@ d)
 e)
    docker stop a1 a2
 f)
-  docker rm a1 a2
-  docker rm --force  a1 a2
+   docker rm a1 a2
+   or
+   docker rm --force  a1 a2
 g)
   docker rmi httpd
+  docker image rm httpd
 h)
-docker pull httpd
+  docker pull httpd
 
