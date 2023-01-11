@@ -1,0 +1,17 @@
+FROM python:3.11-alpine
+
+# notre API python va exposé le port 5000 pour Flask
+EXPOSE 5000
+
+# je spécifie le répertoir du travail  dans le conteneur
+WORKDIR /app
+
+COPY requirements.txt  .
+COPY templates/index.html .
+# j'installe les dépendances:
+RUN pip install -r requirements.txt
+
+# j'ajoute l'appli dans le rép du travail.
+COPY app.py /app
+# la startup command , ou commande de démarrage.
+CMD ["python", "app.py"]
