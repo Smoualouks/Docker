@@ -7,7 +7,7 @@ EXPOSE 5000
 WORKDIR /app
 
 COPY requirements.txt  .
-COPY templates/index.html .
+COPY index.html .
 # j'installe les dépendances:
 RUN pip install -r requirements.txt
 
