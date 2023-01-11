@@ -1,8 +1,5 @@
 FROM python:3.11-alpine
 
-# notre API python va exposé le port 5000 pour Flask
-EXPOSE 5000
-
 # je spécifie le répertoir du travail  dans le conteneur
 WORKDIR /app
 

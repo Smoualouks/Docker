@@ -8,19 +8,19 @@ services:
     ports:
       - "5000:5000"
     environment:
-      SAVE_DB: "true"
+      SAVE_DB: "True"
       DB_HOST: maria_db
       DB_PORT: 3306
-      DB_USER: root
-      DB_PASS: root
-      DB_NAME: ismail_test_db
+      DB_USER: toto
+      DB_PASS: titi
+      DB_NAME: ismaildb
 
   maria_db:
-    image: mariadb:10.5
+    image: mariadb/server:10.3
     ports:
-      - 3306:3306
-
+      - "3306:3306"
     restart: on-failure
-
+    environment:
+      - MARIADB_ROOT_PASSWORD: root
     volumes:
-      - .:/var/lib/mysql
+      - ./script.sql:/docker-entrypoint-initdb.d/
