@@ -7,13 +7,13 @@ services:
       - maria_db
     ports:
       - "5000:5000"
-    environment: 
-       SAVE_DB = true 
-       DB_HOST = maria_db 
-       DB_PORT = 3306 
-       DB_USER = root 
-       DB_PASS = rootpasswd 
-       DB_NAMEc = db_test
+    environment:
+      SAVE_DB: "true"
+      DB_HOST: maria_db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: rootpasswd
+      DB_NAME: db_test
 
   maria_db:
     image: mariadb:10.5
