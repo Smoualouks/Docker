@@ -11,9 +11,9 @@ services:
       SAVE_DB: "true"
       DB_HOST: maria_db
       DB_PORT: 3306
-      DB_USER: toto
-      DB_PASS: titi
-      DB_NAME: projet1
+      DB_USER: root
+      DB_PASS: root
+      DB_NAME: ismail_test_db
 
   maria_db:
     image: mariadb:10.5
@@ -23,4 +23,4 @@ services:
     restart: on-failure
 
     volumes:
-      - ./m_db:/var/lib/mysql:rw
+      - .:/var/lib/mysql
