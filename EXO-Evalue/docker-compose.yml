@@ -4,23 +4,30 @@ services:
     build: .
     image: exo-eval:1.0.0
     depends_on:
-      - maria_db
+      - mariadb
     ports:
       - "5000:5000"
     environment:
       SAVE_DB: "True"
-      DB_HOST: maria_db
-      DB_PORT: 3306
-      DB_USER: toto
-      DB_PASS: titi
-      DB_NAME: ismaildb
+      DB_HOST: "mariadb"
+      DB_PORT: "3306"
+      DB_USER: "toto"
+      DB_PASS: "titi"
+      DB_NAME: "ismaildb"
+    volumes:
+      - ./templates:/app
 
-  maria_db:
+  mariadb:
     image: mariadb/server:10.3
     ports:
-      - "3306:3306"
-    restart: on-failure
+      - "32000:3306"
+    restart: always
+
     environment:
-      - MARIADB_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "ismaildb"
+      MYSQL_USER: "toto"
+      MYSQL_PASSWORD: "titi"
+
     volumes:
-      - ./script.sql:/docker-entrypoint-initdb.d/
+      - ${PWD}:/docker-entrypoint-initdb.d/
