@@ -4,6 +4,7 @@ FROM python:3.11-alpine
 WORKDIR /app
 
 COPY requirements.txt  .
+COPY templates/index.html .
 # j'installe les dépendances:
 RUN pip install -r requirements.txt
 

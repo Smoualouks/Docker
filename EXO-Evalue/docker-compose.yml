@@ -9,25 +9,20 @@ services:
       - "5000:5000"
     environment:
       SAVE_DB: "True"
-      DB_HOST: "mariadb"
+      DB_HOST: mariadb
       DB_PORT: "3306"
       DB_USER: "toto"
       DB_PASS: "titi"
       DB_NAME: "ismaildb"
-    volumes:
-      - ./templates:/app
 
   mariadb:
     image: mariadb/server:10.3
     ports:
       - "32000:3306"
-    restart: always
+    restart: on-failure
 
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "ismaildb"
-      MYSQL_USER: "toto"
-      MYSQL_PASSWORD: "titi"
 
     volumes:
       - ${PWD}:/docker-entrypoint-initdb.d/
